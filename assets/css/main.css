@@ -1,0 +1,257 @@
+@charset "utf-8";
+/* --------------------------------------------------
+    0. Resetting default margin and padding
+-------------------------------------------------- */
+/* line 16, ../../src/sass/base/_common.scss */
+body, div, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+object, iframe, pre, code, p, blockquote,
+form, fieldset, legend,
+table, th, td, caption, tbody, tfoot, thead,
+article, aside, figure, footer, header,
+hgroup, menu, nav, section, audio, video, canvas {
+  margin: 0;
+  padding: 0; }
+
+/* line 21, ../../src/sass/base/_common.scss */
+article, aside, figure, figcaption, footer,
+h1, h2, h3, h4, h5, h6, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* --------------------------------------------------
+    1. HTML, Body, Anchor
+-------------------------------------------------- */
+/* line 28, ../../src/sass/base/_common.scss */
+html {
+  overflow-y: scroll; }
+
+/* for mozilla: always display scrollbar */
+/* line 30, ../../src/sass/base/_common.scss */
+body {
+  color: black;
+  font-family: sans-serif;
+  _font-family: 'ＭＳ Ｐゴシック', sans-serif;
+  font-size: 13px;
+  *font-size: 82%;
+  line-height: 1.5; }
+
+/* line 40, ../../src/sass/base/_common.scss */
+a:link {
+  color: #0000ee;
+  text-decoration: underline; }
+/* line 44, ../../src/sass/base/_common.scss */
+a:visited {
+  color: #551a8b;
+  text-decoration: underline; }
+/* line 48, ../../src/sass/base/_common.scss */
+a:hover {
+  color: #0000ee;
+  text-decoration: none; }
+/* line 52, ../../src/sass/base/_common.scss */
+a:active {
+  color: #0000ee;
+  text-decoration: none; }
+
+/* --------------------------------------------------
+    2. Heading, Paragraph
+-------------------------------------------------- */
+/* line 61, ../../src/sass/base/_common.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+/* p {} */
+/* line 65, ../../src/sass/base/_common.scss */
+p {
+  line-height: 1.5; }
+
+/* --------------------------------------------------
+    3. List
+-------------------------------------------------- */
+/* line 71, ../../src/sass/base/_common.scss */
+li {
+  list-style: none; }
+
+/* --------------------------------------------------
+    4. Table
+-------------------------------------------------- */
+/* line 76, ../../src/sass/base/_common.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 100%;
+  font-family: inherit; }
+
+/* line 82, ../../src/sass/base/_common.scss */
+caption, th, td {
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal; }
+
+/* --------------------------------------------------
+    5. Form
+-------------------------------------------------- */
+/* line 91, ../../src/sass/base/_common.scss */
+fieldset {
+  border: none; }
+
+/* line 92, ../../src/sass/base/_common.scss */
+input, textarea, select, label {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: middle; }
+
+/* line 101, ../../src/sass/base/_common.scss */
+label {
+  cursor: pointer; }
+
+/* line 102, ../../src/sass/base/_common.scss */
+textarea {
+  overflow: auto; }
+
+/* line 103, ../../src/sass/base/_common.scss */
+legend {
+  display: none; }
+
+/* --------------------------------------------------
+    6. Other
+-------------------------------------------------- */
+/* line 108, ../../src/sass/base/_common.scss */
+img {
+  border: none;
+  vertical-align: top; }
+
+/* line 112, ../../src/sass/base/_common.scss */
+object {
+  vertical-align: middle;
+  outline: none; }
+
+/* line 116, ../../src/sass/base/_common.scss */
+em, strong {
+  font-weight: bold;
+  font-style: normal; }
+
+/* line 120, ../../src/sass/base/_common.scss */
+small {
+  font-size: 100%; }
+
+/* line 121, ../../src/sass/base/_common.scss */
+abbr, acronym {
+  border: none;
+  font-variant: normal; }
+
+/* line 125, ../../src/sass/base/_common.scss */
+q:before, q:after {
+  content: ''; }
+
+/* line 126, ../../src/sass/base/_common.scss */
+address, caption, cite, code, dfn, var {
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 130, ../../src/sass/base/_common.scss */
+code, pre {
+  font-family: monospace; }
+
+/* line 131, ../../src/sass/base/_common.scss */
+sup {
+  vertical-align: text-top; }
+
+/* line 132, ../../src/sass/base/_common.scss */
+sub {
+  vertical-align: text-bottom; }
+
+/* line 133, ../../src/sass/base/_common.scss */
+hr {
+  display: none; }
+
+/* ------------------------------------------------------------
+    7. For IE6/7
+------------------------------------------------------------ */
+/* for IE7: page zoom bug fix */
+/* line 141, ../../src/sass/base/_common.scss */
+*:first-child + html body,
+*:first-child + html br {
+  letter-spacing: 0; }
+
+/* --------------------------------------------------
+    1. Common Module
+-------------------------------------------------- */
+/* line 8, ../../src/sass/base/_module.scss */
+.hide {
+  display: none; }
+
+/* line 12, ../../src/sass/base/_module.scss */
+#wrapper {
+  *zoom: 1; }
+  /* line 15, ../../src/sass/base/_module.scss */
+  #wrapper:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0; }
+
+/* --------------------------------------------------
+    90. Other
+-------------------------------------------------- */
+/* for Voice Browser */
+/* line 29, ../../src/sass/base/_module.scss */
+.hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+/* Noscript Message */
+/* line 39, ../../src/sass/base/_module.scss */
+#msgNoscript {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  padding: 5px 0;
+  border-top: 1px solid #f00;
+  border-bottom: 1px solid #f00;
+  background: #fcc;
+  color: #f00;
+  line-height: 1.2;
+  text-align: center;
+  opacity: 0.7; }
+
+/* autopagerize_page_info */
+/* line 57, ../../src/sass/base/_module.scss */
+.autopagerize_page_info {
+  margin: 10px 0; }
+
+/* meca.js */
+/* line 63, ../../src/sass/base/_module.scss */
+.btn,
+.imgpngWrapSpan {
+  cursor: pointer; }
+
+/* --------------------------------------------------
+    0. Container
+-------------------------------------------------- */
+/* line 8, ../../src/sass/base/_layout.scss */
+#wrapper {
+  position: relative;
+  z-index: 50;
+  width: 1024px;
+  margin: 60px auto 0; }
+
+/* --------------------------------------------------
+    1. Header
+-------------------------------------------------- */
+/* --------------------------------------------------
+    2. Content
+-------------------------------------------------- */
+/* --------------------------------------------------
+    3. Footer
+-------------------------------------------------- */

@@ -1,0 +1,65 @@
+/* //////////////////////////////////////////////////
+[Module]
+////////////////////////////////////////////////// */
+
+/* --------------------------------------------------
+    1. Common Module
+-------------------------------------------------- */
+.hide {
+    display: none;
+}
+
+%cf {
+    *zoom: 1;
+
+    &:after {
+        content : '';
+        display : block;
+        clear : both;
+        height: 0;
+    }
+}
+
+
+/* --------------------------------------------------
+    90. Other
+-------------------------------------------------- */
+
+/* for Voice Browser */
+.hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Noscript Message */
+#msgNoscript {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    padding: 5px 0;
+    border-top: 1px solid #f00;
+    border-bottom: 1px solid #f00;
+    background: #fcc;
+    color: #f00;
+    line-height: 1.2;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* autopagerize_page_info */
+.autopagerize_page_info {
+    margin: 10px 0;
+}
+
+/* meca.js */
+.btn,
+.imgpngWrapSpan {
+    cursor: pointer;
+}
