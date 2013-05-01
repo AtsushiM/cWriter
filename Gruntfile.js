@@ -3,12 +3,12 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             app: {
-                src: ['src/js/app.js', 'src/js/_type.js', 'src/js/_helper.js'],
-                dest: 'assets/js/cWriter.js'
+                src: ['js/app.js', 'js/_type.js', 'js/_helper.js'],
+                dest: 'cWriter.js'
             },
             main: {
-                src: ['src/js/main.js'],
-                dest: 'assets/js/main.js'
+                src: ['js/main.js'],
+                dest: 'main.js'
             }
         },
         closure_wrap: {
@@ -17,13 +17,13 @@ module.exports = function(grunt) {
             },
             main: {
                 options: {
-                    src: 'assets/js/main.js',
-                    dest: 'assets/js/main.js',
+                    src: 'main.js',
+                    dest: 'main.js',
                     header: '(function (win, doc, undefined) {',
                     footer: '})(this, this.document);'
                 },
                 files: {
-                    'assets/js/main.js': ['src/js/main.js']
+                    'main.js': ['js/main.js']
                 }
             }
         },
@@ -40,68 +40,30 @@ module.exports = function(grunt) {
                             '*/'
                 },
                 files: {
-                   'assets/js/cWriter.min.js': ['assets/js/cWriter.js']
+                   'cWriter.min.js': ['cWriter.js']
                 }
             },
             main: {
                 file: {
-                    'assets/js/main.min.js': ['assets/js/main.js']
+                    'main.min.js': ['main.js']
                 }
             }
-        },
-        compass: {
-            dist: {
-                options: {
-
-                }
-            },
-            prod: {
-                options: {
-                    environment: 'production'
-                }
-            }
-        },
-        clean: {
-            js:['assets/js'],
-            css:['assets/css']
         },
         watch: {
             js: {
                 files: [
-                'src/js/**/*.js'
+                'js/**/*.js'
                 ],
-                tasks: ['concat', 'closure_wrap', 'uglify', 'copy']
-            },
-            sass: {
-              files: [
-              'src/sass/**/*.scss'
-              ],
-              tasks: ['compass:dist']
-            }
-        },
-        copy: {
-            jslibs: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'src/js/lib/',
-                        src:['*'],
-                        dest: 'assets/js/lib/'
-                    }
-                ]
+                tasks: ['concat', 'closure_wrap', 'uglify']
             }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-closure-wrap');
 
     // grunt.registerTask('default', ['clean', 'copy:jslibs', 'concat', 'uglify', 'compass:dist', 'watch']);
-    grunt.registerTask('default', ['clean', 'copy:jslibs', 'concat', 'closure_wrap', 'uglify', 'compass:dist', 'watch']);
-    grunt.registerTask('prod', ['clean', 'copy:jslibs', 'concat', 'uglify', 'compass:prod']);
+    grunt.registerTask('default', ['concat', 'closure_wrap', 'uglify', 'watch']);
 };
