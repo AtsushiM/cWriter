@@ -3,11 +3,11 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         concat: {
             app: {
-                src: ['js/app.js', 'js/_type.js', 'js/_helper.js'],
+                src: ['src/app.js', 'src/_type.js', 'src/_helper.js'],
                 dest: 'cWriter.js'
             },
             main: {
-                src: ['js/main.js'],
+                src: ['src/main.js'],
                 dest: 'main.js'
             }
         },
