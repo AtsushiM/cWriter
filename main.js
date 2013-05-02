@@ -12,6 +12,6 @@ var s = new CW('0123456789', {style: 'color:#ff0000;'}),
 
 s.output();
 
-// u.output();
+u.output();
 return {}
 })(this, this.document);
