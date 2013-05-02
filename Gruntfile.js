@@ -1,6 +1,13 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        banner: '/*@license\n' +
+                '<%= pkg.name %> - v<%= pkg.version %> - ' +
+                '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                'author - <%= pkg.author %> - <%= pkg.repository %> \n' +
+                'license - <%= pkg.license %> \n' +
+                '*/\n',
+
         concat: {
             app: {
                 src: ['src/app.js', 'src/_type.js', 'src/_helper.js'],
@@ -23,7 +30,18 @@ module.exports = function(grunt) {
                     footer: '})(this, this.document);'
                 },
                 files: {
-                    'main.js': ['js/main.js']
+                    'main.js': ['src/main.js']
+                }
+            }
+        },
+        usebanner: {
+            dist: {
+                options: {
+                    position: 'top',
+                    banner: '<%= banner %>'
+                },
+                files: {
+                    src: ['cWriter.js', 'cWriter.min.js']
                 }
             }
         },
@@ -32,13 +50,6 @@ module.exports = function(grunt) {
                 preserveComments: 'some'
             },
             app: {
-                options: {
-                    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-                            '<%= grunt.template.today("yyyy-mm-dd") %>, ' +
-                            'author - <%= pkg.author %>, ' +
-                            'license - <%= pkg.license %>' +
-                            '*/'
-                },
                 files: {
                    'cWriter.min.js': ['cWriter.js']
                 }
@@ -52,9 +63,9 @@ module.exports = function(grunt) {
         watch: {
             js: {
                 files: [
-                'js/**/*.js'
+                'src/*.js'
                 ],
-                tasks: ['concat', 'closure_wrap', 'uglify']
+                tasks: ['concat', 'closure_wrap', 'uglify', 'usebanner']
             }
         }
     });
@@ -63,7 +74,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-closure-wrap');
+    grunt.loadNpmTasks('grunt-banner');
 
     // grunt.registerTask('default', ['clean', 'copy:jslibs', 'concat', 'uglify', 'compass:dist', 'watch']);
-    grunt.registerTask('default', ['concat', 'closure_wrap', 'uglify', 'watch']);
+    grunt.registerTask('default', ['concat', 'closure_wrap', 'uglify', 'usebanner', 'watch']);
 };
